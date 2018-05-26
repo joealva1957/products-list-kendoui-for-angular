@@ -1,0 +1,23 @@
+/* Styles go here */
+body {
+    background-color: #f2f2f2;
+}
+h3.text-primary {
+    margin: 0;
+}
+.product-grid-item {
+    border:1px solid #f2f2f2;
+    padding:7px;
+    box-sizing: border-box;
+    background-color: white;
+}
+.product-grid-item .row-price {
+    margin:5px;
+}
+.product-list-item {
+    border-bottom:1px solid #AAA;
+    box-sizing: border-box;
+    margin-top:5px;
+    padding: 10px;
+    background-color: white;
+}

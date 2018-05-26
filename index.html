@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Welcome to Kendo UI (2017.1.223)</title>
+  
+  <!-- Kendo UI CSS-->
+  <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.223/styles/kendo.common.min.css" />
+  <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.223/styles/kendo.rtl.min.css" />
+  <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.223/styles/kendo.default.min.css" />
+  <link rel="stylesheet" href="http://kendo.cdn.telerik.com/2017.1.223/styles/kendo.mobile.all.min.css" />
+  <!-- Bootstrap 4 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css" />
+  <!-- Material Desing -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!-- JQuery -->
+  <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+  <!-- JS -->
+  <script src="app.js"></script>
+  <!-- Angular -->
+  <script src="http://kendo.cdn.telerik.com/2017.1.223/js/angular.min.js"></script>
+  <!-- JSZIP -->
+  <script src="http://kendo.cdn.telerik.com/2017.1.223/js/jszip.min.js"></script>
+  <!-- Kendo UI All -->
+  <script src="http://kendo.cdn.telerik.com/2017.1.223/js/kendo.all.min.js"></script>
+
+</head>
+
+<body>
+  
+  <!-- <div class="container-fluid">
+    <h1>Kendo UI y Bootstrap</h1>
+    <p> Lista de productos con diferentes templates</p>
+  </div> -->
+  <div id="productsView" class="container">
+    <h2>Products</h1>
+    <div class="text-right">
+        <button id="btnList" class="btn btn-primary" data-template="product-list-item-template">
+          List
+          <i class="material-icons">list</i>
+          <!-- <i class="fa fa-list-ul"></i> -->
+          
+        </button>
+        <button id="btnGrid" class="btn btn-primary" data-template="product-item-template">
+          Group
+          <i class="material-icons">grid_on</i>
+          <!-- <i class="fa fa-table"> </i> -->
+          
+        </button>
+    </div>
+    <br/>
+      <!-- HTML Repeater -->
+    <div
+          id="products"
+          data-role="listview"
+          class="row"
+          data-bind="source: products"
+          data-template="product-item-template">
+    </div>
+  </div>
+
+  <!--<script>
+    $(document).ready(function() {
+
+      $("#grid").kendoGrid({
+        columns: [{
+          field: "FirstName",
+          title: "First Name"
+        }, {
+          field: "LastName",
+          title: "Last Name"
+        }],
+        dataSource: {
+          data: [{
+            FirstName: "Joe",
+            LastName: "Smith"
+          }, {
+            FirstName: "Jane",
+            LastName: "Smith"
+          }]
+        }
+      });
+
+
+
+    });
+  </script>-->
+  
+  <!-- Last compiled and minified JavaScript-->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <!-- My JS -->
+  <script src="app.js"></script>
+  
+  <!-- Grid item template -->
+  <script type="text/template" id="product-item-template">
+    <div class="col-md-4 product-grid-item">
+      <!-- Brand Image -->
+      <div class="text-left">
+        <img  data-bind="attr:{src:brandImage}"/>
+      </div>
+      <!-- Product Image -->
+      <div class="text-center">
+        <img  data-bind="attr:{src:productImage}"/>
+      </div>
+      <!-- Description -->
+      <div data-bind="text:description"></div>
+      <!-- Price, stock and buy button -->
+      <div class="row row-price">
+        <div class="col-md-6 text-right">
+          <h3 class="text-primary">#:kendo.toString(price,"C")#</h3>
+          <p>Stock: <strong data-bind="text:stock" class="text-success"></strong></p>
+        </div>
+        <div class="col-md-4 text-right">
+          <button class="btn btn-warning">
+            Buy
+            <i class="fa fa-cart-plus"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </script>
+  
+  <!-- List item template -->
+  <script type="text/template" id="product-list-item-template">
+    <div class="col-xs-12 product-list-item">
+        <div class="row">
+          <!-- Brand and product images -->
+          <div class="col-md-2">
+            <img  data-bind="attr:{src:brandImage}"/>
+            <img  data-bind="attr:{src:productImage}"/>
+          </div>
+          <!-- Description -->
+          <div class="col-md-6">
+            <h4 data-bind="text:description"></h3>
+            <ul>
+              #for(var i=0;i<descriptions.length;i++){#
+                <li> #=descriptions[i]# </li>
+              #}#
+            </ul>
+          </div>
+          <!-- price,stock and buy button -->
+          <div class="col-xs-10 col-md-3 text-right">
+            <h3 class="text-primary">#:kendo.toString(price,"C")#</h3>
+            <p>Stock: <strong data-bind="text:stock" class="text-success"></strong></p>
+            <button class="btn-buy btn btn-warning">
+              Buy
+              <i class="fa fa-cart-plus"></i>
+            </button>
+          </div>
+        </div>
+    </div>
+  </script>
+  
+  
+  
+</body>
+
+</html>
